@@ -8,7 +8,7 @@ const http: AxiosInstance = axios.create({
 http.defaults.headers.post["Content-Type"] = "application/json";
 
 http.interceptors.response.use(
-  async (response: AxiosResponse): Promise => {
+  async (response: AxiosResponse): Promise<any> => {
     if (response.status >= 200 && response.status < 300) {
       return response.data;
     }
