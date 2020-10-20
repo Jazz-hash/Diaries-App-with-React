@@ -34,22 +34,27 @@ const DiaryEntriesList: FC = () => {
         <Link to="/">
           <button type="submit" className="button">
             ← Go Back
-            </button>
+          </button>
         </Link>
       </header>
       <ul>
-        
-        {entries.length ? entries.map((entry) => (
-          <li
-            key={entry.id}
-            onClick={() => {
-              dispatch(setCurrentlyEditing(entry));
-              dispatch(setCanEdit(true));
-            }}
-          >
-            <a href="#editor" style={{    color: "black"}}>{entry.title}</a>
-          </li>
-        )): <p style={{textAlign:"center"}}>No entries found !</p>}
+        {entries.length ? (
+          entries.map((entry) => (
+            <li
+              key={entry.id}
+              onClick={() => {
+                dispatch(setCurrentlyEditing(entry));
+                dispatch(setCanEdit(true));
+              }}
+            >
+              <a href="#editor" style={{ color: "black" }}>
+                {entry.title}
+              </a>
+            </li>
+          ))
+        ) : (
+          <p style={{ textAlign: "center" }}>No entries found !</p>
+        )}
       </ul>
     </div>
   );

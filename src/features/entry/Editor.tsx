@@ -66,7 +66,7 @@ const Editor: FC = () => {
           style={{ textAlign: "center", width: "100%" }}
           className="styled-font"
         >
-          Add Entry
+          Entry
         </h1>
         {entry && !canEdit ? (
           <h4>
