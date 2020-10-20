@@ -7,7 +7,7 @@ import * as serviceWorker from "./serviceWorker";
 import store from "./store";
 import { Provider } from "react-redux";
 
-if (process.env.NODE_ENV === "development") {
+if (process.env.NODE_ENV === "production") {
   setupServer();
 }
 ReactDOM.render(

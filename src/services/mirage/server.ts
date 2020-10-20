@@ -15,10 +15,9 @@ export const handleErrors = (
   });
 };
 
-
 export const setupServer = (env?: string): Server => {
   return new Server({
-    environment: env ?? "production",
+    environment: env ?? "development",
 
     models: {
       entry: Model.extend({
