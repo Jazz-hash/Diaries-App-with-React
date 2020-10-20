@@ -62,6 +62,12 @@ const Editor: FC = () => {
           borderBottom: "1px solid rgba(0,0,0,0.1)",
         }}
       >
+        <h1
+          style={{ textAlign: "center", width: "100%" }}
+          className="styled-font"
+        >
+          Add Entry
+        </h1>
         {entry && !canEdit ? (
           <h4>
             {entry.title}
@@ -73,13 +79,14 @@ const Editor: FC = () => {
                   dispatch(setCanEdit(true));
                 }
               }}
-              style={{ marginLeft: "0.4em" }}
+              style={{ marginLeft: "0.4em", color: "black" }}
             >
               (Edit)
             </a>
           </h4>
         ) : (
-          <input
+            <input
+              id="editor"
             value={editedEntry?.title ?? ""}
             disabled={!canEdit}
             onChange={(e) => {
@@ -120,7 +127,7 @@ const Editor: FC = () => {
               }
             }}
           />
-          <button onClick={saveEntry} disabled={!canEdit}>
+          <button onClick={saveEntry} className="button" disabled={!canEdit}>
             Save
           </button>
         </>

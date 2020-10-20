@@ -85,10 +85,11 @@ const Diaries: FC = () => {
           <DiaryEntriesList />
         </Route>
         <Route path="/">
-          <button onClick={createDiary}>Create New</button>
-          {diaries.map((diary, idx) => (
+          <button onClick={createDiary} className="button">Create New</button>
+          
+          {diaries.length ? diaries.map((diary, idx) => (
             <DiaryTile key={idx} diary={diary} />
-          ))}
+          )): <p style={{textAlign:"center"}}>No diaries found !</p>}
         </Route>
       </Switch>
     </div>

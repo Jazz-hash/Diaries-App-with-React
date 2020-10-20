@@ -7,6 +7,7 @@ import { setUser } from "./userSlice";
 import { AuthResponse } from "../../services/mirage/routes/user";
 import { useAppDispatch } from "../../store";
 
+// eslint-disable-next-line
 const schema = Yup.object().shape({
   username: Yup.string()
     .required("What? No username?")
@@ -41,8 +42,9 @@ const Auth: FC = () => {
   };
 
   return (
-    <div className="auth">
+    <div className="auth" >
       <div className="card">
+        <h1 className="styled-font">JazzDiaries</h1>
         <form onSubmit={handleSubmit(submitForm)}>
           <div className="inputWrapper">
             <input ref={register} name="username" placeholder="Username" />
@@ -56,6 +58,7 @@ const Auth: FC = () => {
               name="password"
               type="password"
               placeholder="Password"
+              required={true}
             />
             {errors && errors.password && (
               <p className="error">{errors.password.message}</p>
@@ -74,7 +77,7 @@ const Auth: FC = () => {
             </div>
           )}
           <div className="inputWrapper">
-            <button type="submit" disabled={loading}>
+            <button type="submit" className="button" disabled={loading}>
               {isLogin ? "Login" : "Create account"}
             </button>
           </div>

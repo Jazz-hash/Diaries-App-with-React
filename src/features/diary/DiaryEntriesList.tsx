@@ -32,11 +32,14 @@ const DiaryEntriesList: FC = () => {
     <div className="entries">
       <header>
         <Link to="/">
-          <h3>← Go Back</h3>
+          <button type="submit" className="button">
+            ← Go Back
+            </button>
         </Link>
       </header>
       <ul>
-        {entries.map((entry) => (
+        
+        {entries.length ? entries.map((entry) => (
           <li
             key={entry.id}
             onClick={() => {
@@ -44,9 +47,9 @@ const DiaryEntriesList: FC = () => {
               dispatch(setCanEdit(true));
             }}
           >
-            {entry.title}
+            <a href="#editor" style={{    color: "black"}}>{entry.title}</a>
           </li>
-        ))}
+        )): <p style={{textAlign:"center"}}>No entries found !</p>}
       </ul>
     </div>
   );
